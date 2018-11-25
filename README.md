@@ -1,4 +1,4 @@
-# swipe-card
+# Swipe Card
 
 ## Project setup
 ```
