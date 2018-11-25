@@ -1,5 +1,7 @@
 # Swipe Card
 
+A card stack that a user sipes left or right deciding whether to accept the card or not. 
+
 ## Project setup
 ```
 npm install
