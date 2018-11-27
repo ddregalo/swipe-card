@@ -34,7 +34,8 @@ export default {
 .cards {
   position: relative;
   display: flex;
-  margin: 50px;
-  width: 300px;
+  margin: auto;
+  width: 20%;
+  padding: 30px;
 }
 </style>
