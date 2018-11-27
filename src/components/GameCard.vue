@@ -209,7 +209,6 @@ $fs-card-title: 1.125em;
   user-select: none;
   pointer-events: none;
   will-change: transform, opacity;
-
   height: 100vw;
 
   &.isCurrent {
