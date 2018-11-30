@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <h3>User Selections: {{userAcceptedCount}}</h3> 
+    <br/>
+    <br/>
 		<GameCardStack
 			:cards="visibleCards"
 			@cardAccepted="handleCardAccepted"
@@ -21,15 +24,18 @@ export default {
 
   data() {
     return {
-      visibleCards: ["Test", "Vue.js", "Webpack"]
+      visibleCards: ["Shamooooo", "Wassaaawwww", "Bob Regexxxxx"],
+      userAcceptedCount: 0
     };
   },
 
   methods: {
     handleCardAccepted() {
+      this.userAcceptedCount ++
       console.log("handleCardAccepted");
     },
     handleCardRejected() {
+      this.userAcceptedCount --
       console.log("handleCardRejected");
     },
     handleCardSkipped() {
