@@ -21,7 +21,7 @@ const SKIP_CARD = "cardSkipped";
 
 export default {
   static: {
-    interactMaxRotation: 15,
+    interactMaxRotation: 40,
     interactOutOfSightXCoordinate: 500,
     interactOutOfSightYCoordinate: 600,
     interactYThreshold: 150,
@@ -197,11 +197,12 @@ $fs-card-title: 1.125em;
   font-size: $fs-h2;
   font-weight: $fw-bold;
   color: $c-white;
-  background-image: linear-gradient(
-    -180deg,
-    $primary-gradient-start 2%,
-    $primary-gradient-end 100%
-  );
+  // background-image: linear-gradient(
+  //   -180deg,
+  //   $primary-gradient-start 2%,
+  //   $primary-gradient-end 100%
+  // );
+  background-color: rgb(114, 95, 95);
   opacity: 0;
   transform: translateY($defaultTranslation) scale($defaultScale);
   transform-origin: 50%, 100%;
