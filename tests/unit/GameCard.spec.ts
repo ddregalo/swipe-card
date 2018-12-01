@@ -30,23 +30,4 @@ describe('GameCard.vue', () => {
     expect(wrapper.vm.$data.interactPosition.x).toBe(0);
     expect(wrapper.vm.$data.interactPosition.y).toBe(0);
   });
-
-  describe('Lifecycle Hooks', () => {
-  // it('Mounted Lifecycle Hook ', done => {
-  //     const card = 'test';
-  //     const isCurrent = true;
-  //     const wrapper = shallowMount(GameCard, {
-  //       propsData: { card, isCurrent },
-  //     });
-  //     const sinon = require('sinon');
-  //     const elementInteractStub = sinon.stub(wrapper.vm.$mount());
-  //     // const addEventStub = sinon.stub(window, 'addEventListener');
-
-  //     expect(elementInteractStub).toBeCalledWith(wrapper.vm);
-  //     elementInteractStub.restore();
-  //     // addEventStub.restore()
-  //     done();
-  // });
-  });
-
 });
