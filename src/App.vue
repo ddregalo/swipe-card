@@ -4,7 +4,7 @@
     <br/>
     <br/>
 		<GameCardStack
-			:cards="visibleCards"
+			:cards="characters"
 			@cardAccepted="handleCardAccepted"
 			@cardRejected="handleCardRejected"
 			@cardSkipped="handleCardSkipped"
@@ -14,37 +14,52 @@
 </template>
 
 <script>
-import GameCardStack from "./components/GameCardStack";
+import GameCardStack from './components/GameCardStack';
+import axios from 'axios';
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
-    GameCardStack
+    GameCardStack,
   },
 
   data() {
     return {
-      visibleCards: ["Shamooooo", "Wassaaawwww", "Bob Regexxxxx"],
-      userAcceptedCount: 0
+      characters: [],
+      userAcceptedCount: 0,
     };
   },
 
   methods: {
+    extractNames(responseData) {
+      responseData.forEach((character) => {
+        this.characters.push(character.name.toString());
+      });
+    },
     handleCardAccepted() {
-      this.userAcceptedCount ++
-      console.log("handleCardAccepted");
+      this.userAcceptedCount ++;
+      console.log('handleCardAccepted');
     },
     handleCardRejected() {
-      this.userAcceptedCount --
-      console.log("handleCardRejected");
+      this.userAcceptedCount --;
+      console.log('handleCardRejected');
     },
     handleCardSkipped() {
-      console.log("handleCardSkipped");
+      console.log('handleCardSkipped');
     },
     removeCardFromDeck() {
-      this.visibleCards.shift();
+      this.characters.shift();
+    },
+  },
+
+  async mounted() {
+    try {
+      const response = await axios.get(`https://swapi.co/api/people/`);
+      this.extractNames(response.data.results);
+    } catch (e) {
+      this.errors.push(e);
     }
-  }
+  },
 };
 </script>
 
