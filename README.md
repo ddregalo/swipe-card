@@ -4,6 +4,8 @@ A card stack that a user swipes right (accept) or left (reject) or down (skip). 
 
 1. A simple counter where each card has a value of 1 and the cumulative total of the accepted (+1), rejected (-1) and skipped cards (0) is displayed.
 
+2. Each card displays a character retrieved from https://swapi.co/ api and then displays a list of the selected character names. 
+
 ## Frameworks
 * VueJS
 * InteractJS
