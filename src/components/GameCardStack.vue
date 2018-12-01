@@ -14,19 +14,19 @@
 </template>
 
 <script>
-import GameCard from "@/components/GameCard";
+import GameCard from '@/components/GameCard';
 
 export default {
   components: {
-    GameCard
+    GameCard,
   },
 
   props: {
     cards: {
       type: Array,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 };
 </script>
 
