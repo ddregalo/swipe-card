@@ -3,6 +3,10 @@
     <h3>User Selections: {{userAcceptedCount}}</h3> 
     <br/>
     <br/>
+    <BarChart v-if="show"/>
+    <button v-on:click="show = !show">Show Bar Chart</button>
+    <br/>
+    <br/>
 		<GameCardStack
 			:cards="characters"
 			@cardAccepted="handleCardAccepted"
@@ -15,18 +19,21 @@
 
 <script>
 import GameCardStack from './components/GameCardStack';
+import BarChart from './components/BarChart';
 import axios from 'axios';
 
 export default {
   name: 'App',
   components: {
     GameCardStack,
+    BarChart,
   },
 
   data() {
     return {
       characters: [],
       userAcceptedCount: 0,
+      show: false,
     };
   },
 
