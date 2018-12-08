@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <h3>User Selections: {{userAcceptedCount}}</h3> 
+    <h3>User Selections: {{userCumulativeCount}}</h3> 
     <br/>
     <br/>
-    <BarChart v-if="show"/>
+    <BarChart :selections="chartData" v-if="show"/>
     <button v-on:click="show = !show">Show Bar Chart</button>
     <br/>
     <br/>
@@ -32,8 +32,11 @@ export default {
   data() {
     return {
       characters: [],
-      userAcceptedCount: 0,
+      userCumulativeCount: 0,
       show: false,
+      chartData: [],
+      selectedCount: 0,
+      notSelectedCount: 0,
     };
   },
 
@@ -44,18 +47,35 @@ export default {
       });
     },
     handleCardAccepted() {
-      this.userAcceptedCount ++;
+      this.userCumulativeCount ++;
+      this.selectedCount ++;
       console.log('handleCardAccepted');
     },
     handleCardRejected() {
-      this.userAcceptedCount --;
+      this.userCumulativeCount --;
+      this.notSelectedCount ++;
       console.log('handleCardRejected');
     },
     handleCardSkipped() {
       console.log('handleCardSkipped');
     },
     removeCardFromDeck() {
+      if (this.characters.length == 1) {
+        this.calcChartData();
+        console.log(this.chartData);
+      }
       this.characters.shift();
+    },
+    calcChartData() {
+      this.chartData = [
+      {
+        name: "Selected",
+        count: this.selectedCount,
+      },
+      {
+        name: "Rejected",
+        count: this.notSelectedCount,
+      }];
     },
   },
 

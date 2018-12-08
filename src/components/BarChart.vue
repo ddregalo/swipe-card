@@ -9,43 +9,22 @@
   import * as d3 from 'd3-3';
   
   export default {
+    props: {
+      selections: {
+        type: Array,
+        required: true,
+      },
+    },
+
     data() {
       return {
-        chartData: [
-        {
-        "name": "Apples",
-        "value": 20,
-        },
-        {
-          "name": "Bananas",
-          "value": 12,
-        },
-        {
-          "name": "Grapes",
-          "value": 19,
-        },
-        {
-          "name": "Lemons",
-          "value": 5,
-        },
-        {
-          "name": "Limes",
-          "value": 16,
-        },
-        {
-          "name": "Oranges",
-          "value": 26,
-        },
-       {
-          "name": "Pears",
-          "value": 30,
-        }],
+        chartData: this.selections
       };
     },
 
     mounted() {
       const sortedData = this.chartData.sort(function (a, b) {
-        return d3.ascending(a.value, b.value);
+        return d3.ascending(a.count, b.count);
         });
       
       //set up svg using margin conventions - we'll need plenty of room on the left for labels
@@ -68,7 +47,7 @@
       var x = d3.scale.linear()
         .range([0, width])
         .domain([0, d3.max(sortedData, function (d) {
-            return d.value;
+            return d.count;
         })]);
 
       var y = d3.scale.ordinal()
@@ -102,7 +81,7 @@
         .attr("height", y.rangeBand())
         .attr("x", 0)
         .attr("width", function (d) {
-            return x(d.value);
+            return x(d.count);
         });
 
       //add a value label to the right of each bar
@@ -114,10 +93,10 @@
         })
         //x position is 3 pixels to the right of the bar
         .attr("x", function (d) {
-            return x(d.value) + 3;
+            return x(d.count) + 3;
         })
         .text(function (d) {
-            return d.value;
+            return d.count;
         });
     }
   };
