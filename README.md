@@ -10,6 +10,9 @@ A card stack that a user swipes right (accept) or left (reject) or down (skip). 
    * Display the chart when a button is clicked.
    * Add skipped selections to chart.
 
+4. Implement the above using a Vuex store.
+
+
 ## Frameworks
 * VueJS
 * InteractJS
