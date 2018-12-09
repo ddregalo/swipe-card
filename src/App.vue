@@ -37,6 +37,7 @@ export default {
       chartData: [],
       selectedCount: 0,
       notSelectedCount: 0,
+      skippedCount: 0,
     };
   },
 
@@ -57,12 +58,12 @@ export default {
       console.log('handleCardRejected');
     },
     handleCardSkipped() {
+      this.skippedCount ++;
       console.log('handleCardSkipped');
     },
     removeCardFromDeck() {
       if (this.characters.length == 1) {
         this.calcChartData();
-        console.log(this.chartData);
       }
       this.characters.shift();
     },
@@ -75,6 +76,10 @@ export default {
       {
         name: "Rejected",
         count: this.notSelectedCount,
+      },
+      {
+        name: "Skipped",
+        count: this.skippedCount,
       }];
     },
   },
