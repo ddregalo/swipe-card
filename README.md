@@ -8,7 +8,7 @@ A card stack that a user swipes right (accept) or left (reject) or down (skip). 
 
 3. Display a horizontal bar chart of the number of selected and unselcted characters using d3:
    * Display the chart when a button is clicked.
-   * Display the chart live animating to the live selections.
+   * Add skipped selections to chart.
 
 ## Frameworks
 * VueJS
