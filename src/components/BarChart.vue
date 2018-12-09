@@ -35,8 +35,8 @@
           left: 60
       };
 
-      var width = 960 - margin.left - margin.right,
-        height = 500 - margin.top - margin.bottom;
+      var width = 800 - margin.left - margin.right,
+        height = 375 - margin.top - margin.bottom;
 
       var svg = d3.select("#graphic").append("svg")
         .attr("width", width + margin.left + margin.right)
