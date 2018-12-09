@@ -21,8 +21,14 @@
 import GameCardStack from './components/GameCardStack';
 import BarChart from './components/BarChart';
 import axios from 'axios';
+import Vuex from 'vuex';
+import { store } from './store.ts';
+import Vue from 'vue';
+
+Vue.use(Vuex);
 
 export default {
+  store,
   name: 'App',
   components: {
     GameCardStack,
@@ -32,13 +38,24 @@ export default {
   data() {
     return {
       characters: [],
-      userCumulativeCount: 0,
       show: false,
       chartData: [],
-      selectedCount: 0,
-      notSelectedCount: 0,
-      skippedCount: 0,
     };
+  },
+
+  computed: {
+    userCumulativeCount(){
+      return this.$store.state.userCumulativeCount;
+    },
+    selectedCount() {
+      return this.$store.state.selectedCount;
+    },
+    notSelectedCount() {
+     return this.$store.state.notSelectedCount;
+    },
+    skippedCount() {
+      return this.$store.state.skippedCount;
+    },
   },
 
   methods: {
@@ -48,18 +65,13 @@ export default {
       });
     },
     handleCardAccepted() {
-      this.userCumulativeCount ++;
-      this.selectedCount ++;
-      console.log('handleCardAccepted');
+      this.$store.commit('incrementCount', 'selected');
     },
     handleCardRejected() {
-      this.userCumulativeCount --;
-      this.notSelectedCount ++;
-      console.log('handleCardRejected');
+      this.$store.commit('incrementCount', 'notSelected');
     },
     handleCardSkipped() {
-      this.skippedCount ++;
-      console.log('handleCardSkipped');
+      this.$store.commit('incrementCount', 'skipped');
     },
     removeCardFromDeck() {
       if (this.characters.length == 1) {
