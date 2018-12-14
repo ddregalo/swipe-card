@@ -1,5 +1,4 @@
 # Swipe Card
-
 A card stack that a user swipes right (accept) or left (reject) or down (skip). This is built entirely in the front end with VueJS and Interactjs and Scss. Just playing around with the cards in a variety of ways to explore the functionality. I have a bunch of mini mvps here to try out:
 
 1. A simple counter where each card has a value of 1 and the cumulative total of the accepted (+1), rejected (-1) and skipped cards (0) is displayed.
@@ -9,9 +8,11 @@ A card stack that a user swipes right (accept) or left (reject) or down (skip). 
 3. Display a horizontal bar chart of the number of selected and unselcted characters using d3:
    * Display the chart when a button is clicked.
    * Add skipped selections to chart.
+   * Aniamte bars on the chart.
 
 4. Implement the above using a Vuex store.
 
+5. Unit and End-2-End test the components and views.
 
 ## Frameworks
 * VueJS
