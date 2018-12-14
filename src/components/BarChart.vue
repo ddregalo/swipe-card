@@ -80,9 +80,13 @@
         })
         .attr("height", y.rangeBand())
         .attr("x", 0)
+        .attr("width", 0)
+        .transition()
+        .delay(function (d, i) { return i*100; })
         .attr("width", function (d) {
-            return x(d.count);
+          return x(d.count);
         });
+
 
       //add a value label to the right of each bar
       bars.append("text")
@@ -101,6 +105,41 @@
     }
   };
 </script>
+
+
+
+
+    // var y = d3.scale.linear()
+    //           .domain([0, d3.max(data)])
+    //           .range([0, chartHeight]);
+
+    // d3.select(svg)
+    //   .selectAll("rect")
+    //     .data(data)
+    //   .enter().append("rect")
+    //     .attr("class", "bar")
+    //     .attr("width", barWidth)
+    //     .attr("x", function (d, i) { return barWidth*i + barSpace*i; })
+    //     .attr("y", chartHeight)
+    //     .attr("height", 0)
+    //     .transition()
+    //     .delay(function (d, i) { return i*100; })
+    //     .attr("y", function (d, i) { return chartHeight-y(d); })
+    //     .attr("height", function (d) { return y(d); });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <style>
   body {
