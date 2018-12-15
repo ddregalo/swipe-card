@@ -11,4 +11,9 @@ describe('Swipe Card', () => {
     cy.visit('/')
     cy.contains('h3', 'User Selections: 0')
   })
+
+  it('Has a show chart button', () => {
+    cy.visit('/')
+    cy.contains('button', 'Show Bar Chart')
+  })
 })
