@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <h3>User Selections: {{userCumulativeCount}}</h3> 
+    <h1>SWIPE CARD</h1>
+    <p>VUEJS + INTERACT JS + D3</p>
+    <h3 style="padding-top: 50px;">User Selections: {{userCumulativeCount}}</h3> 
     <br/>
     <br/>
     <BarChart :selections="chartData" v-if="show"/>
@@ -109,6 +111,7 @@ export default {
 
 <style lang="scss">
 @import "./styles/mixins.scss";
+@import "./styles/site.scss";
 
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
