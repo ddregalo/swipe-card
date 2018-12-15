@@ -1,5 +1,3 @@
-// https://docs.cypress.io/api/introduction/api.html
-
 describe('Swipe Card', () => {
   it('Homepage has title', () => {
     cy.visit('/')
