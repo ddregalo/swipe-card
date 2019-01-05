@@ -5,6 +5,7 @@
     <h3 style="padding-top: 50px;">User Selections: {{userCumulativeCount}}</h3> 
     <br/>
     <br/>
+    <h5 v-if="error !== null">{{error}}</h5>
     <BarChart :selections="chartData" v-if="show"/>
     <button v-on:click="show = !show">Show Bar Chart</button>
     <br/>
@@ -24,7 +25,7 @@ import GameCardStack from './components/GameCardStack';
 import BarChart from './components/BarChart';
 import axios from 'axios';
 import Vuex from 'vuex';
-import { store } from './store.ts';
+import store from './store.ts';
 import Vue from 'vue';
 
 Vue.use(Vuex);
@@ -39,7 +40,8 @@ export default {
 
   data() {
     return {
-      characters: [],
+      characters: this.$store.state.characters,
+      error: null,
       show: false,
       chartData: [],
     };
@@ -99,12 +101,7 @@ export default {
   },
 
   async mounted() {
-    try {
-      const response = await axios.get(`https://swapi.co/api/people/`);
-      this.extractNames(response.data.results);
-    } catch (e) {
-      this.errors.push(e);
-    }
+    this.$store.dispatch('getCharacters');
   },
 };
 </script>
