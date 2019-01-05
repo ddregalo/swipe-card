@@ -61,6 +61,21 @@ export default {
   },
 
   methods: {
+    calcChartData() {
+      this.chartData = [
+      {
+        name: "Selected",
+        count: this.selectedCount,
+      },
+      {
+        name: "Rejected",
+        count: this.notSelectedCount,
+      },
+      {
+        name: "Skipped",
+        count: this.skippedCount,
+      }];
+    },
     extractNames(responseData) {
       responseData.forEach((character) => {
         this.characters.push(character.name.toString());
@@ -80,22 +95,7 @@ export default {
         this.calcChartData();
       }
       this.characters.shift();
-    },
-    calcChartData() {
-      this.chartData = [
-      {
-        name: "Selected",
-        count: this.selectedCount,
-      },
-      {
-        name: "Rejected",
-        count: this.notSelectedCount,
-      },
-      {
-        name: "Skipped",
-        count: this.skippedCount,
-      }];
-    },
+    }
   },
 
   async mounted() {
